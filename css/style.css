@@ -1,0 +1,390 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    /*Colors*/
+    --body-color:#E4E9F7;
+    --sidebar-color:#FFF;
+    --button-color:#695CFE;
+    --header-color:#695CFE;
+    --primary-color-light:#F6F5FF;
+    --nav-color:#F6F5FF;
+    --toggle-color:#DDD;
+    --text-color:#707070;
+    --label-color: #adadad;
+    /*Transitions*/
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body{
+    /* background: linear-gradient(180deg, #121261 , #003c59); */
+    background: var(--body-color);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 84px auto;
+    grid-template-columns: 100vw;
+    transition: var(--tran-03);
+}
+
+.header{
+    display: flex;
+    background: var(--header-color);
+    justify-content: space-between;
+    padding: 5px 5%;
+    align-items: center;
+    grid-row: 1/2;
+    grid-column: 1/-1;
+}
+.logo img{
+    height: 70px;
+    width: auto;
+    transition: all .5s;
+    cursor: pointer;
+}
+.header .logo img:hover{
+    transform: scale(1.1);/*efecto junto a transition para agrandar un objetivo*/
+}
+.nav-links li{
+    display: inline-block;
+    transition: all 0.5s;
+}
+.nav-links li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 0 20px;
+    font-size: 18px;
+}
+.header .nav-links li:hover{
+    transform: scale(1.2);
+}
+.nav-links li a:hover{
+    color: var(--nav-color);
+}
+
+.main{
+    display: flex;
+    grid-row: 2/3;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    grid-column: 1/-1;
+    padding: 1px;
+    margin: 45px 0px 0 0px;/*arriba derecha abajo izquierda*/
+}
+.formulario{
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    height: 450px;
+    width: 400px;
+    background: var(--primary-color-light);
+    border-radius: 10px;
+    border: 1px solid silver ;
+}
+.formulario h1{
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid silver;
+    color: var(--text-color);
+}
+.formulario form{
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 35px 145px 145px 35px;
+    grid-template-rows: 80px 80px 80px 130px;
+}
+.formulario form .username{
+    grid-row: 1/2;
+    grid-column: 2/-1;
+    
+}
+.formulario form .bxs-user{
+    grid-row: 1/2;
+    grid-column: 1/2;
+    align-self: center;
+}
+.formulario form .bxs-lock-alt{
+    grid-row: 2/3;
+    grid-column: 1/2;
+    align-self: center;
+}
+.formulario form .bxs-bank{
+    grid-row: 3/4;
+    grid-column: 1/2;
+    align-self: center;
+    margin-top: 10px;
+}
+.formulario form .bx{
+    font-size: 25px;
+}
+
+.formulario form .pass{
+    grid-row: 2/3;
+    grid-column: 2/-1;
+    display: grid;
+    grid-template-columns: 275px 50px;
+    grid-template-rows: auto;
+}
+.formulario form .pass .lookPass{
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.formulario form .pass .lookPass img{
+    margin-top: 5px;
+    height: 32px;
+    cursor: pointer;
+    pointer-events: visible;
+    position: absolute;
+}
+.formulario form .pass .lookPass img.closed{
+    display: none;
+}
+.formulario form .pass .passwordItems{
+    grid-row: 1/-1;
+    grid-column: 1/2;
+}
+.formulario form .opciones{
+    grid-row: 3/4;
+    grid-column: 2/-1;
+    align-self: center;
+}
+.formulario form .opciones > label{
+    position: relative;
+    top: 5px;
+    font-size: 16px;
+    user-select: none;
+}
+.formulario form .opciones > label.active {
+    color: #695CFE; /* Cambio de color de fuente cuando el select está en uso */
+  }
+.formulario form .opciones select{
+    height: 40px;
+    width: 325px;
+    border: none;
+    border-bottom: 2px solid #adadad ;
+    background: none;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+.formulario form .opciones select:focus {
+    border-bottom-color: #695CFE; /* Cambio de color del borde inferior al seleccionar el select */
+  }
+form .edit{
+    border-bottom: 2px solid var(--label-color);
+    margin: 20px 0;
+}
+form .edit:focus-within{/*cambiar el color del borde de abajo cuando esté escribiendo*/
+    border-bottom: 2px solid #695CFE;
+}
+form .inputs{/*para "desaparecer el input pero tener un efecto con el label"*/
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.formulario form label{/*para mover los label a donde desaparecimos los input*/
+    color: var(--label-color);/*color de fuente*/
+    /* transform: translateY(-30%); */
+    font-size: 16px;
+    pointer-events: none;
+    transition: .3s;
+    position: relative;
+    top: -30px; /* Ajusta este valor según tus necesidades */
+    left: 0;
+}
+
+
+/**/
+.formulario form .anotherItems{
+    grid-row: 4/-1;
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 40px 60px;
+}
+.formulario form .anotherItems .recordar {
+    align-self: center;
+    color: #062a9e;
+    cursor: pointer;
+    grid-row: 1/1;
+    grid-column: 1/-1;
+    
+}
+.recordar:hover{
+    text-decoration: underline;
+}
+button[type="button"]{
+    width:100%;
+    height: 50px;
+    border: 1px solid;
+    background: var(--button-color);
+    border-radius: 12px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: ease-out .1s;
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    align-self: center;
+}
+button[type="button"]:hover{
+    transform: scale(1.04);
+}
+
+/**/
+.darkmodeswitch{
+    position: relative;
+    top: -10px;
+    left: 5px;
+    width: 210px;
+}
+.mode{
+    background: var(--primary-color-light);
+    /* position: relative; */
+    border-radius: 6px;
+    transition: var(--tran-05);
+    display: grid;
+    grid-template-columns: 30px 110px 50px;
+    grid-template-rows: 50px;
+    width: 190px;
+}
+.mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    grid-column: 1/2;
+    grid-row: 1/-1;
+}
+.mode-text{
+    grid-column: 2/3;
+    grid-row: 1/-1;
+    display: grid;
+    place-content: center;
+    color: var(--text-color);
+}
+
+.mode i{
+    margin-left: 11px;
+    position: absolute;
+    transition: var(--tran-03);
+    font-size: 20px;
+} 
+.mode i.sun{
+    opacity: 0;
+}
+body.dark .mode i.moon{
+    opacity: 0;
+}
+body.dark .mode i.sun{
+    opacity: 1;
+} .mode .toggle-switch{
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+    display: grid;
+    place-content: center;
+    height: 100%;
+    right: 0;
+    min-width: 60px;
+    /* background: #695CFE; */
+    cursor: pointer;
+    /* position: absolute; */
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+.darkmodeswitch .mode .toggle-switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    right: 0;
+    min-width: 60px;
+    /* background: #695CFE; */
+    cursor: pointer;
+    /* position: absolute; */
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+.darkmodeswitch .toggle-switch .switch{
+    position: relative;
+    border-radius: 25px;
+    height: 22px;
+    width: 44px;
+    background: var(--toggle-color);
+}
+.darkmodeswitch .switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+body.dark .switch::before{
+    left: 24px;
+
+}
+body.dark .formulario form .bx{
+    color: var(--text-color);
+}
+body.dark .formulario form label{
+    color: var(--label-color);
+}
+body.dark{
+    /*Colors*/
+    --body-color:#0d1320;
+    --sidebar-color:#262426;
+    --nav-color:#F6F5FF;
+    --primary-color-light:#1b2740;
+    --header-color:#0e6d74;
+    --button-color: #0e6d74;
+    --toggle-color:#FFF;
+    --text-color:#CCC;
+    --label-color: #adadad;
+      transition: var(--tran-03);
+}
+body.dark .lookpass img{
+    fill: #9e235c;
+}
+body.dark .formulario form .anotherItems .recordar {
+    color: var(--text-color);
+    
+}
+body.dark .formulario form .opciones > label.active {
+    color: #0e6d74; /* Cambio de color de fuente cuando el select está en uso */
+  }
+body.dark .formulario form .opciones select:focus {
+    border-bottom-color: #0e6d74; /* Cambio de color del borde inferior al seleccionar el select */
+  }
+body.dark form .edit:focus-within{/*cambiar el color del borde de abajo cuando esté escribiendo*/
+    border-bottom: 2px solid #0e6d74;
+}
+body.dark .formulario form .opciones select{
+    color: var(--text-color);
+    background: var(--primary-color-light);
+}
+body.dark input{
+  color: #CCC; /* Cambio de color del texto al escribir en el input */
+}
+/**/

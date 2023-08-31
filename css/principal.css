@@ -1,0 +1,370 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    /*Colors*/
+    --body-color:#E4E9F7;
+    --sidebar-color:#FFF;
+    --button-color:#695CFE;
+    --header-color:#695CFE;
+    --primary-color-light:#F6F5FF;
+    --nav-color:#F6F5FF;
+    --toggle-color:#DDD;
+    --text-color:#707070;
+    --label-color: #adadad;
+    /*Transitions*/
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+body{
+    /* background: linear-gradient(180deg, #121261 , #003c59); */
+    background: var(--body-color);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 84px 85vh;
+    grid-template-columns: auto;
+    transition: var(--tran-03);
+}
+
+.header{
+    display: flex;
+    background: var(--header-color);
+    justify-content: space-between;
+    padding: 5px 5%;
+    align-items: center;
+    grid-row: 1/2;
+    grid-column: 1/-1;
+}
+.logo img{
+    height: 70px;
+    width: auto;
+    transition: all .5s;
+    cursor: pointer;
+}
+.header .logo img:hover{
+    transform: scale(1.1);/*efecto junto a transition para agrandar un objetivo*/
+}
+.nav-links li{
+    display: inline-block;
+    transition: all 0.5s;
+}
+.nav-links li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 0 20px;
+    font-size: 18px;
+}
+.header .nav-links li:hover{
+    transform: scale(1.2);
+}
+.nav-links li a:hover{
+    color: var(--nav-color);
+}
+.main{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: auto;
+    height: 50vh;
+    width: 98vw;
+    grid-row: 2/3;
+    grid-column: 1/-1;
+}
+.main .vinculacion{
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    display: grid;
+    place-content: start;
+}
+.main .vinculacion .vinculacionButton{
+    padding: 10px;
+    width: 180px;
+    height: 140px;
+    justify-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background: rgb(240, 239, 239);
+    border-radius: 10px;
+    box-shadow: #695cfea9 0px 10px 36px 0px;
+}
+.main .vinculacion .vinculacionButton h2{
+    text-align: center;
+    color: var(--text-color);
+}
+.main .vinculacion .vinculacionButton i.bxs-customize{
+    font-size: 50px;
+    color: #695CFE;
+}
+.main .vinculacion .vinculacionButton:hover{
+    transform: scale(1.04);
+    box-shadow: #695cfea9 0px 10px 36px 0px;
+    transition: var(--tran-02);
+}
+
+/*formulario*/
+.formcontainer{
+    display: none;
+}
+.formcontainer.active{
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    display: grid;
+    place-items: center;
+}
+.formcontainer2{
+    display: none;
+}
+.formcontainer2.active{
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    backdrop-filter: blur(1px);
+    height: 100%;
+    width: 100%;
+}
+.formcontainer.active .popup-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 600px; /* Ancho del formulario */
+    border-radius: 10px;
+    /* display: grid; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 10px;
+    text-align: center;
+    margin: 0 auto;
+    
+    justify-self: center;
+    align-self: center;
+}
+.formcontainer.active .input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    transition: border-color 0.3s ease;
+}
+  
+.formcontainer.active .input-container i {
+    margin: 0 10px;
+}
+  
+.formcontainer.active .input-container input {
+    border: none;
+    flex-grow: 1;
+}
+  
+.formcontainer.active .submit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    grid-column: 1/3;
+    width: 100px;
+    height: 40px;
+}
+.formcontainer.active form#login{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 12px auto;
+}
+.formcontainer.active form#login .phoneInput{
+    font-size: 12px;
+    text-align: start;
+    color: #999;
+    margin-left: 2px;
+}
+.formcontainer.active .input-container input[type="text"]:focus,
+.formcontainer.active .input-container input[type="email"]:focus,
+.formcontainer.active .input-container input[type="tel"]:focus,
+.formcontainer.active .input-container input[type="date"]:focus,
+.formcontainer.active .input-container select:focus {
+  outline: none;
+}
+.formcontainer.active .input-container input[type="text"]:focus,
+.formcontainer.active .input-container input[type="email"]:focus,
+.formcontainer.active .input-container select:focus,
+.formcontainer.active .input-container input[type="date"]:focus {
+  border-color: #007bff;
+}
+
+.formcontainer.active .input-container.has-data {
+  border-color: #28a745;
+}
+.formcontainer.active .input-container:focus-within {
+    border-color: #007bff;
+}
+.formcontainer.active .input-container.invalid-date {
+    border-color: #ff0000;
+  }
+  
+.formcontainer.active .input-container.invalid-email {
+    border-color: #ff0000;
+}
+.formcontainer.active .error-message {
+    display: none;
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    margin-top: -50px;
+    white-space: nowrap;
+    background-color: white;
+    padding: 2px 5px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+/*fin formulario*/
+/**/
+body.dark{
+    transition: var(--tran-03);
+}
+.darkmodeswitch{
+    position: relative;
+    top: 475px;
+    left: 5px;
+    width: 210px;
+    height: 55px;
+    grid-row: 2/3;
+    grid-column: 1/-1;
+}
+.mode{
+    background: var(--primary-color-light);
+    /* position: relative; */
+    border-radius: 6px;
+    transition: var(--tran-05);
+    display: grid;
+    grid-template-columns: 30px 110px 50px;
+    grid-template-rows: 50px;
+    width: 190px;
+}
+.mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    grid-column: 1/2;
+    grid-row: 1/-1;
+}
+.mode-text{
+    grid-column: 2/3;
+    grid-row: 1/-1;
+    display: grid;
+    place-content: center;
+    color: var(--text-color);
+}
+
+.mode i{
+    margin-left: 11px;
+    position: absolute;
+    transition: var(--tran-03);
+    font-size: 20px;
+} 
+.mode i.sun{
+    opacity: 0;
+}
+body.dark .mode i.moon{
+    opacity: 0;
+}
+body.dark .mode i.sun{
+    opacity: 1;
+} .mode .toggle-switch{
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+    display: grid;
+    place-content: center;
+    height: 100%;
+    right: 0;
+    min-width: 60px;
+    /* background: #695CFE; */
+    cursor: pointer;
+    /* position: absolute; */
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+.darkmodeswitch .mode .toggle-switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    right: 0;
+    min-width: 60px;
+    /* background: #695CFE; */
+    cursor: pointer;
+    /* position: absolute; */
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+.darkmodeswitch .toggle-switch .switch{
+    position: relative;
+    border-radius: 25px;
+    height: 22px;
+    width: 44px;
+    background: var(--toggle-color);
+}
+.darkmodeswitch .switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+body.dark .switch::before{
+    left: 24px;
+
+}
+body.dark .main .vinculacion .vinculacionButton h2{
+    text-align: center;
+    color: var(--text-color);
+}
+body.dark .main .vinculacion .vinculacionButton i.bxs-customize{
+    font-size: 50px;
+    color: #0e6d74;
+}
+body.dark .main .vinculacion .vinculacionButton:hover{
+    transform: scale(1.04);
+    box-shadow: #0e6d74a9 0px 10px 36px 0px;
+    transition: var(--tran-02);
+}
+body.dark .main .vinculacion .vinculacionButton{
+    background: #1b2740;
+    box-shadow: #0e6d7441 0px 8px 20px 0px;
+}
+body.dark{
+    /*Colors*/
+    --body-color:#0d1320;
+    --sidebar-color:#262426;
+    --nav-color:#F6F5FF;
+    --primary-color-light:#1b2740;
+    --header-color:#0e6d74;
+    --button-color: #0e6d74;
+    --toggle-color:#FFF;
+    --text-color:#CCC;
+    --label-color: #adadad;
+}

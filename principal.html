@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/b150f2edaa.js" defer crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="js/principal.js" defer></script>
+    <link rel="stylesheet" href="css/principal.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="logo">
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="formcontainer2"></div>
+        <div class="formcontainer">
+            <div id="popup" class="popup-container">
+                <div class="input-container">
+                  <i class="fas fa-id-card"></i>
+                  <input required type="text" placeholder="Número de Identificación" id="identificacionInput">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input required type="date" placeholder="Fecha de Expedición" id="expedicionDateInput" title="Por favor, ingresa una fecha válida">
+                    <div class="error-message" id="dateErrorMessage">Por favor, ingresa una fecha válida</div>
+                  </div>
+                <div class="input-container select-container">
+                    <form id="login" onsubmit="process(event)">
+                        <label for="phone" class="phoneInput">Celular</label>
+                        <input required id="phone" type="tel" name="phone"/>
+                      </form>
+                      <div class="alert alert-info" style="display: none;"></div>
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-envelope"></i>
+                    <input required type="email" placeholder="Correo Electrónico" id="emailInput" title="Por favor, ingresa una dirección de correo válida">
+                    <div class="error-message" id="emailErrorMessage">Por favor, ingresa una dirección de correo válida</div>
+                  </div>
+                <button class="submit-button">Continuar</button>
+              </div>
+        </div>
+    <main class="main">
+        <div class="vinculacion">
+            <button type="button" id="vinculacionbtn" class="vinculacionButton">
+                <i class='bx bxs-customize'></i>
+                <h2 class="vinculate">Vinculacion Nueva</h2>
+            </button>
+        </div>
+    </main>
+    <div class="darkmodeswitch">
+        <li class="mode">
+            <div class="moon-sun">
+                <i class='bx bx-moon icon moon'></i>
+                <i class='bx bx-sun icon sun'></i>
+            </div>
+            <div class="mode-text text">Night mode</div>
+            <div class="toggle-switch">
+                <span class="switch"></span>
+            </div>
+        </li>
+    </div>
+</body>
+</html>
