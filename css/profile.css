@@ -41,10 +41,10 @@ body{
     grid-column: 1/-1;
 }
 .logo img{
-    height: 70px;
-    width: auto;
-    transition: all .5s;
-    cursor: pointer;
+  height: 75px;
+  width: auto;
+  transition: all .5s;
+  cursor: pointer;
 }
 .header .logo img:hover{
     transform: scale(1.1);/*efecto junto a transition para agrandar un objetivo*/
@@ -78,7 +78,7 @@ body{
 }
 
 #menu {
-  background-color: #333;
+  background-color: var(--primary-color-light);
   color: #fff;
   padding: 20px 0;
   text-align: center;
@@ -97,7 +97,7 @@ body{
 
 #menu a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -357,5 +357,10 @@ body.dark{
     --text-color:#CCC;
     --label-color: #adadad;
 }
-
+body.dark .section h2 {
+  color: var(--text-color);
+}
+body.dark #menu a {
+  color: var(--text-color);
+}
 /*  */
